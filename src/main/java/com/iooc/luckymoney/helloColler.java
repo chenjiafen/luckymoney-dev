@@ -51,9 +51,9 @@ public class helloColler {
 //    @GetMapping("/helloW/{id}")@PathVariable("id")
 
     //方法二
-    @GetMapping("helloW")
-    @ResponseBody //为了让没有模版的有返回值
-    public String can(@RequestParam("id") Integer id) {
+    @GetMapping("helloe")
+    @ResponseBody //为了让没有模版的有返回值   required为false为非必传
+    public String can(@RequestParam(value = "id" ,required = false,defaultValue = "0") Integer id) {
         return "id:"+id;
     }
 }
