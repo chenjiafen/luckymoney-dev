@@ -1,11 +1,8 @@
 package com.iooc.luckymoney;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 
 /**
  * @author tyler.chen
@@ -44,11 +41,19 @@ public class helloColler {
 
     }
 //    @PostMapping("/helloW")
-//    @GetMapping("/helloW")
-    @RequestMapping("/helloW") //不区分什么请求
+    @GetMapping("/helloW")
+//    @RequestMapping("/helloW") //不区分什么请求
     @ResponseBody //为了让没有模版的有返回值
     public String sys(){
         return limitconfig.getDescripition();
     }
+    //方法一
+//    @GetMapping("/helloW/{id}")@PathVariable("id")
 
+    //方法二
+    @GetMapping("helloW")
+    @ResponseBody //为了让没有模版的有返回值
+    public String can(@RequestParam("id") Integer id) {
+        return "id:"+id;
+    }
 }
