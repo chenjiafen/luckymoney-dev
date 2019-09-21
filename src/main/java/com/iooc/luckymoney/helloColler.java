@@ -3,10 +3,7 @@ package com.iooc.luckymoney;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
@@ -45,6 +42,13 @@ public class helloColler {
     public String moban(){
         return "index";
 
+    }
+//    @PostMapping("/helloW")
+//    @GetMapping("/helloW")
+    @RequestMapping("/helloW") //不区分什么请求
+    @ResponseBody //为了让没有模版的有返回值
+    public String sys(){
+        return limitconfig.getDescripition();
     }
 
 }
