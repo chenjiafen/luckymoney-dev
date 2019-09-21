@@ -1,0 +1,10 @@
+server:
+  port: 8989
+  servlet:
+    context-path: /luckymoney
+
+
+limit:
+  minMoney: 1
+  maxMoney: 999
+  descripition: 最少要发${limit.minMoney}元
