@@ -16,7 +16,7 @@ import java.math.BigDecimal;
  */
 //@RestController
     @Controller
-    @ResponseBody //为了让没有模版的有返回值
+    @RequestMapping("/hello") //为了访问/hello/minmoney
 public class helloColler {
 //    @Value("${minMoney}")
 //    public BigDecimal minMoney;
@@ -26,14 +26,18 @@ public class helloColler {
 
 
     @GetMapping("/hello")
+    @ResponseBody //为了让没有模版的有返回值
     public String say(){
         return "hello word";
     }
-    @GetMapping("/minmoney")
+    @GetMapping({"/minmoney","/money"} )
+    @ResponseBody //为了让没有模版的有返回值
+
     public String minMoney(){
         return "最少发"+limitconfig.getMinMoney()+"元红包";
     }
     @GetMapping("/rules")
+    @ResponseBody //为了让没有模版的有返回值
     public String rules(){
         return limitconfig.getDescripition();
     }
